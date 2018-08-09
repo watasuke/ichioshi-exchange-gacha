@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate
   def show
-    user = current_user
+    user = Credit.find_by(user_id: current_user.id)
     if user.credits == 0
       flash[:notice] = "ガチャを引くためのクレジットが不足しています。イチオシを投稿してクレジットを貯めてください"
       redirect_to("/")
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(title: params[:title], comment: params[:comment], user_id: current_user.id)
     if @post.save
-      user = current_user
+      user = Credit.find_by(user_id: current_user.id)
       user.credits += 5
       user.save
       flash[:notice] = "イチオシを投稿しました"

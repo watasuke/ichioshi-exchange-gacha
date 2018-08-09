@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  validates  :credits, numericality: { allow_blank: true, greater_than_or_equal_to: 0 }
   after_create :login_bonus
     def self.find_or_create_from_auth(auth)
       provider = auth[:provider]
@@ -14,6 +13,6 @@ class User < ApplicationRecord
     end
 
     def login_bonus
-      
+      Credit.new(user_id: current_user.id, credits: 1)
     end
 end
