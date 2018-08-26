@@ -13,6 +13,6 @@ class User < ApplicationRecord
     end
 
     def login_bonus
-      Credit.new(user_id: current_user.id, credits: 1)
+      Credit.new(user_id: self.id, credits: 1)
     end
 end
