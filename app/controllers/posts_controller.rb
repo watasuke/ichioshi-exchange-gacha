@@ -1,15 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate
   def show
-    user = Credit.find_by(user_id: current_user.id)
-    if user.credits == 0
-      flash[:notice] = "ガチャを引くためのクレジットが不足しています。イチオシを投稿してクレジットを貯めてください"
-      redirect_to("/")
-    else
-      @post = Post.offset( rand(Post.count) ).first
-      user.credits -= 1
-      user.save
-    end
+    
   end
 
   def new

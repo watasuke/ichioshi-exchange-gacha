@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'results/create' => 'results#create'
   get 'posts/show' => 'posts#show'
   get 'posts/new' => 'posts#new'
   post 'posts/create' => 'posts#create'
