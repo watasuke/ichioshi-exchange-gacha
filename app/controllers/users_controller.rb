@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def collection
-    collection = Result.where(user_id: current_user.id)
-    @posts = Post.where(id: collection.post_id)
+    @collections = Result.where(user_id: current_user.id)
   end
 
   def posts
