@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def login_bonus
     Credit.create(user_id: self.id, credits: 1)
   end
+
+  def posts
+    return Post.where(user_id: self.id)
+  end
 end
