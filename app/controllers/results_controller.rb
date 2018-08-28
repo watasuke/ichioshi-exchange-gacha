@@ -5,10 +5,13 @@ class ResultsController < ApplicationController
       flash[:notice] = "ガチャを引くためのクレジットが不足しています。イチオシを投稿してクレジットを貯めてください"
       redirect_to("/")
     else
-      @post = Post.offset( rand(Post.count) ).first
+      post = Post.offset( rand(Post.count) ).first
       user.credits -= 1
       user.save
-      redirect_to :controller => 'posts', :action => 'show', :slug => @post.slug
+
+      Result.create(user_id: current_user.id, post_id: post.id)
+
+      redirect_to :controller => 'posts', :action => 'show', :slug => post.slug
     end
   end
 end
