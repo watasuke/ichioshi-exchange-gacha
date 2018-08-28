@@ -1,0 +1,4 @@
+<h1>Users#collection</h1>
+    <% @posts.each do |post| %>
+        <%= link_to(post.title, "/posts/#{post.slug}") %>
+    <% end %>

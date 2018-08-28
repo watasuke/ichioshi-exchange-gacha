@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def collection
-    @user = User.find_by(id: current_user.id)
+    collection = Result.where(user_id: current_user.id)
+    @posts = Post.where(id: collection.post_id)
   end
 
   def posts
