@@ -11,7 +11,7 @@ class Post < ApplicationRecord
     private
     def set_create_slug
         loop do
-            self.slug = SecureRandom.hex(7)
+            self.slug = SecureRandom.hex(4)
             break unless Post.where(slug: slug).exists?
         end
     end

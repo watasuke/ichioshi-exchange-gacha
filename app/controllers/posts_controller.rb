@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate
   def show
-    
+    @post = Post.find_by(slug: params[:slug])
   end
 
   def new
