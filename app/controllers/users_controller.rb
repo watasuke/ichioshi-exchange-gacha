@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def collection
-    @collections = Result.where(user_id: current_user.id)
+    results = Result.where(user_id: current_user.id)
+    @collections = Post.where(id: results.pluck(:post_id))
   end
 
   def posts
