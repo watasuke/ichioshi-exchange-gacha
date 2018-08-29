@@ -1,5 +1,4 @@
 <h1>Users#collection</h1>
-    <% @collections.each do |collection| %>
-        <% post = Post.find_by(id: collection.post_id) %>
+    <% @collections.each do |post| %>
         <%= link_to(post.title, "/posts/#{post.slug}") %>
     <% end %>
