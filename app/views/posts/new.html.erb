@@ -17,17 +17,17 @@
                     </div>
                 <% end %>
             <div class="col-auto">
-                <label for="title">タイトル</label>
-                <input type="text" class="form-control" name="title" placeholder="なにをイチオシするか書いてください">
+                <label for="title">イチオシするもの</label>
+                <input type="text" class="form-control border border-secondary" name="title" placeholder="なにをイチオシするか入力してください">
             </div>
             </div>
             <div class="form-group">
             <div class="col-auto">
                 <label for="comment">コメント</label>
-                <textarea class="form-control" name="comment" placeholder="どんな風にイチオシか書いてください"><%= @post.comment %></textarea>
+                <textarea class="form-control border border-secondary" name="comment" placeholder="どんなところがイチオシなのか、想いをつづってください"><%= @post.comment %></textarea>
             </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">イチオシを投稿する</button>
+            <button type="submit" class="btn btn-primary btn-lg">イチオシを投稿する</button>
         <% end %>
     </div>
   </body>

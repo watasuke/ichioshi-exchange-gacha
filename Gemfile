@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 #BootStrap
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 
 #Twitter認証用
