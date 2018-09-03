@@ -1,9 +1,17 @@
 <h1>イチオシ詳細</h1>
-    <tr>
-        <div>
-            <td><%= @post.title %></td>
-        </div>
-        <div>
-            <td><%= @post.comment %></td>
-        </div>
-    </tr>
+<tr>
+    <div>
+        <td><%= @post.title %></td>
+    </div>
+    <div>
+        <td><%= @post.comment %></td>
+    </div>
+</tr>
+
+<div>
+    <%= link_to 'ガチャ結果をツイート', 'https://twitter.com/share?url=#{}&text=#{}', class: 'btn btn-primary btn-lg' %>
+</div>
+
+<div>
+    <%= link_to 'イチオシガチャを回す', '/results/create', class: 'btn btn-primary btn-lg' %>
+</div>
