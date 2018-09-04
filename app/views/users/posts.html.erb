@@ -1,4 +1,3 @@
-<h1>Users#posts</h1>
-    <% @user.posts.each do |post| %>
-        <%= link_to(post.title, "/posts/#{post.slug}") %>
-    <% end %>
+<% @user.posts.each do |post| %>
+    <h2><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
+<% end %>
