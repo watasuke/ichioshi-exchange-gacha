@@ -1,3 +1,7 @@
 <% @collections.each do |post| %>
-    <h2><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
+<div class="card w-75">
+  <div class="card-body">
+    <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
+  </div>
+</div>
 <% end %>
