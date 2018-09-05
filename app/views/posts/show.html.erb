@@ -2,7 +2,8 @@
   <div class="card-body">
     <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.comment %></p>
-
+    <img src="<%= @user.image_url %>" class="rounded-circle">
+    <%= link_to '#{@user.user_name}', 'https://twitter.com/#{@user.user_name}' %>
   </div>
 </div>
 
