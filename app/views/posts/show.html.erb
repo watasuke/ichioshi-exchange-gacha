@@ -3,12 +3,12 @@
     <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.comment %></p>
     <img src="<%= @user.image_url %>" class="rounded-circle">
-    <%= link_to '#{@user.user_name}', 'https://twitter.com/#{@user.user_name}' %>
+    <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
   </div>
 </div>
 
 <div>
-    <%= link_to 'ガチャ結果をツイート', 'https://twitter.com/share?url=#{}&text=#{}', class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'ガチャ結果をツイート', "https://twitter.com/share?url=#{}&text=#{}", class: 'btn btn-primary btn-lg' %>
 </div>
 
 <div>
