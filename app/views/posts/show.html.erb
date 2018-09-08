@@ -1,16 +1,18 @@
-<div class="card w-75 mx-auto d-block">
-  <div class="card-body">
-    <h1 class="card-title"><%= @post.title %></h1>
-    <p class="card-text"><%= @post.comment %></p>
-    <img src="<%= @user.image_url %>" class="rounded-circle">
-    <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+<body class="bg-light">
+  <div class="card w-75 mx-auto d-block">
+    <div class="card-body">
+      <h1 class="card-title"><%= @post.title %></h1>
+      <p class="card-text"><%= @post.comment %></p>
+      <img src="<%= @user.image_url %>" class="rounded-circle">
+      <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+    </div>
   </div>
-</div>
 
-<div class="text-center">
-  <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！", rel: 'nofollow',target: "_blank" %>
-</div>
+  <div class="text-center">
+    <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！", rel: 'nofollow',target: "_blank" %>
+  </div>
 
-<div>
-  <a href="/results/create"><img src="/get.png" class="mx-auto d-block" width="250px"></a>
-</div>
+  <div>
+    <a href="/results/create"><img src="/get.png" class="mx-auto d-block" width="250px"></a>
+  </div>
+</body>

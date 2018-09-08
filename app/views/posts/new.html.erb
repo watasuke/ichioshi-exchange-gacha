@@ -7,8 +7,8 @@
 
     <title>新規投稿</title>
   </head>
-  <body>
-    <div class="container">
+  <body class="bg-light">
+    <div class="container-fluid bg-light">
         <%= form_tag("/posts/create") do %>
             <div class="form-group">
                 <% @post.errors.full_messages.each do |message| %>
