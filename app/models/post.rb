@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     validates  :comment, {presence: true, length:{maximum: 500}}
     validates  :user_id, {presence: true}
     before_create :set_create_slug
+    belongs_to :user
 
     def to_param
         slug
