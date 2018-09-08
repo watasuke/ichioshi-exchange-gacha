@@ -5,8 +5,9 @@
 
             <% if @current_user %>
                 <div class="btn-group dropleft">
-                    <img src="<%= @current_user.image_url %>" class=" dropdown-toggle rounded-circle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+                    <div class="dropdown-toggle rounded-circle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="<%= @current_user.image_url %>" class="rounded-circle">
+                    <img src= "/menu.svg" width="30px">
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <%= link_to '過去の投稿', '/users/posts', class: 'dropdown-item' %>
                         <%= link_to 'ガチャコレクション', '/users/collection', class: 'dropdown-item' %>
