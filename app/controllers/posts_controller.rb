@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new(title: params[:title], comment: params[:comment], user_id: current_user.id)
     if @post.save
       user = Credit.find_by(user_id: current_user.id)
-      user.credits += 5
+      user.credits += 3
       user.save
       flash[:notice] = "イチオシを投稿しました"
       redirect_to("/")

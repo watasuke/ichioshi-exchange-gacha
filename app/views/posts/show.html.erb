@@ -7,10 +7,10 @@
   </div>
 </div>
 
-<div>
-    <%= link_to 'ガチャ結果をツイート', "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！", rel: 'nofollow',target: "_blank", class: 'btn btn-primary btn-lg mx-auto d-block', style: "width: 250px;" %>
+<div class="mx-auto d-block">
+  <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！", rel: 'nofollow',target: "_blank" %>
 </div>
 
 <div>
-    <%= link_to 'イチオシガチャを回す', '/results/create', class: 'btn btn-primary btn-lg mx-auto d-block', style: "width: 250px;" %>
+  <a href="/results/create"><img src="/get.png" class="mx-auto d-block" width="250px"></a>
 </div>
