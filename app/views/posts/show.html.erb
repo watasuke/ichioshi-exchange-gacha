@@ -1,5 +1,16 @@
 <head>
-    <title><%= @post.title %> | イチオシ交換ガチャ</title>
+  <title><%= @post.title %> | イチオシ交換ガチャ</title>
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%= @post.title %>" />
+  <meta property="og:description" content="<%= @post.comment %>" />
+  <meta property="og:url" content="<%= request.url %>" />
+  <meta property="og:site_name" content="イチオシ交換ガチャ" />
+  <meta property="og:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="<%= @post.comment %>" />
+  <meta name="twitter:title" content="<%= @post.title %>" />
+  <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
+  <meta name="twitter:creator" content="@watasuke221" />
 </head>
 <body class="bg-light">
   <div class="card w-75 mx-auto d-block">
