@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, :current_user
+
   def show
     @post = Post.find_by(slug: params[:slug])
     @user = User.find_by(id: @post.user_id)
