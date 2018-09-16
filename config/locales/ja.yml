@@ -1,6 +1,9 @@
 ---
 ja:
   activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
     attributes:
       posts:
         title: イチオシするもの

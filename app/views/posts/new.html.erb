@@ -17,7 +17,7 @@
         <%= form_tag("/posts/create") do %>
             <div class="form-group">
                 <% @post.errors.full_messages.each do |message| %>
-                    <div class="form-error">
+                    <div class="form-error alert alert-warning text-center" role="alert">
                         <%= message %>
                     </div>
                 <% end %>

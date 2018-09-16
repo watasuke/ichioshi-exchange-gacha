@@ -26,7 +26,7 @@
       <%= render :partial => 'shared/header' %>
       <div id="contents">
         <% if flash[:notice] %>
-          <div class="notice">
+          <div class="notice alert alert-warning text-center" role="alert">
             <%= flash[:notice]%>
           </div>
         <% end %>
