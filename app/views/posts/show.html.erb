@@ -26,7 +26,7 @@
     <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！&hashtags=イチオシ交換ガチャ", rel: 'nofollow',target: "_blank" %>
   </div>
 
-  <div>
-    <a href="/results/create"><img src="/get.png" class="mx-auto d-block" width="250px"></a>
+  <div class="text-center">
+    <a href="/results/create"><img src="/get.png" width="250px"></a>
   </div>
 </body>
