@@ -7,7 +7,6 @@
                 <div class="btn-group dropleft" style='position:absolute; top:4px; right: 4px'>
                     <div>
                         <img src="<%= @current_user.image_url %>" class="rounded-circle dropdown-toggle rounded-circle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                        <%# <img src= "/menu.svg" width="30px">  %>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <%= link_to '過去の投稿', '/users/posts', class: 'dropdown-item' %>
                             <%= link_to 'ガチャコレクション', '/users/collection', class: 'dropdown-item' %>
@@ -16,7 +15,7 @@
                     </div>
                 </div>
             <% else %>
-            <a href="" class="float-right text-white"><%= link_to 'Twitterでログイン', '/auth/twitter', class: "text-white" %></a>
+            <%= link_to 'ログイン', '/auth/twitter', class: "float-right text-white", style: 'position:absolute; top:16px; right: 4px' %>
             <% end %>
         </nav>
     </header>

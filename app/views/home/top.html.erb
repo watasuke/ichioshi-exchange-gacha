@@ -13,24 +13,33 @@
     <meta name="twitter:creator" content="@watasuke221" />
 </head>
 <body class="bg-light" style="padding-bottom: 96px;">
-    <div class="text-center font-weight-bold text-primary display-2"><%= @credits %></div>
-    <div class="text-center font-weight-bold text-primary">クレジット</div>
-    <img src="/main-visual.png" class="mx-auto d-block" width="400px">
-    <div class="text-center my-3">
-        <a href="/results/create"><img src="/get.png" width="250px"></a>
-    </div>
-    <div class="text-center my-3">
-        <a href="/posts/new"><img src="/post.png" width="250px"></a>
-    </div>
+    <% if !@current_user %>
+        <img src="/main-visual.png" class="mx-auto d-block" width="400px">
+        <div class="text-center my-3">
+            <a href="/auth/twitter"><img src="/login.png" width="250px"></a>
+        </div>
+    <% end %>
+    <% if @current_user %>
+        <div class="text-center font-weight-bold text-primary display-2"><%= @credits %></div>
+        <div class="text-center font-weight-bold text-primary">クレジット</div>
+        <div class="text-center my-3">
+            <a href="/results/create"><img src="/get.png" width="250px"></a>
+        </div>
+        <div class="text-center my-3">
+            <a href="/posts/new"><img src="/post.png" width="250px"></a>
+        </div>
+    <% end %>
     </br>
     <div class="text-center font-weight-bold display-4 my-4 text-body">あそびかた</div>
     <img src="/step1.png" class="mx-auto d-block" width="50px">
-    <img src="/kamihikouki.png" class="mx-auto d-block" width="150px">
-    <div class="text-center font-weight-bold text-body">自分のイチオシ情報を投稿する</div>
+    <img src="/kamihikouki.png" class="mx-auto d-block my-2" width="120px">
+    <div class="text-center font-weight-bold text-body my-1">自分のイチオシ情報を投稿する</div>
     </br>
     <img src="/step2.png" class="mx-auto d-block" width="50px">
-    <div class="text-center font-weight-bold text-body">報酬として3クレジットを得る</br>(1クレジット=1ガチャ)</div>
+    <img src="/3credits.png" class="mx-auto d-block my-2" width="200px">
+    <div class="text-center font-weight-bold text-body my-2">報酬として3クレジットを得る</br>(1クレジット=1ガチャ)</div>
     </br>
     <img src="/step3.png" class="mx-auto d-block" width="50px">
-    <div class="text-center font-weight-bold text-body">クレジットを使って</br>イチオシガチャを回す</div>
+    <img src="/goal.png" class="mx-auto d-block my-2" width="250px">
+    <div class="text-center font-weight-bold text-body my-2">クレジットを使って</br>イチオシガチャを回す</div>
 </body>
