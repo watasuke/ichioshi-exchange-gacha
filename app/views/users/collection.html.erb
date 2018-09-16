@@ -13,14 +13,14 @@
     <meta name="twitter:creator" content="@watasuke221" />
 </head>
 <body class="bg-light" style="padding-bottom: 96px;">
-    <h1 class="text-center">イチオシコレクション</h1>
+    <h1 class="text-center my-3">イチオシコレクション</h1>
     <% @collections.each do |post| %>
-    <div class="card w-75 mx-auto d-block">
-    <div class="card-body">
-        <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
-        <img src="<%= post.user.image_url %>" alt="">
-        <%= post.user.user_name %>
-    </div>
-    </div>
+        <div class="card w-75 mx-auto d-block my-2">
+            <div class="card-body">
+                <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
+                <img src="<%= post.user.image_url %>" alt="">
+                <%= post.user.user_name %>
+            </div>
+        </div>
     <% end %>
 </body>

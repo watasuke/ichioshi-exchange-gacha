@@ -14,6 +14,7 @@
 </head>
 <body class="bg-light">
     <div class="container-fluid bg-light">
+        </br>
         <%= form_tag("/posts/create") do %>
             <div class="form-group">
                 <% @post.errors.full_messages.each do |message| %>
@@ -32,7 +33,7 @@
                     <textarea class="form-control border border-secondary" name="comment" placeholder="どんなところがイチオシなのか、想いをつづってください"><%= @post.comment %></textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg mx-auto d-block">イチオシを投稿する</button>
+            <button type="submit" class="btn btn-primary btn-lg mx-auto d-block text-white">イチオシを投稿する</button>
         <% end %>
     </div>
 </body>
