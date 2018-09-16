@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   def create
     user = Credit.find_by(user_id: current_user.id)
     if user.credits == 0
-      flash[:notice] = "ガチャを引くためのクレジットが不足しています。"
+      flash[:notice] = "ガチャを回すためのクレジットが不足しています。"
       redirect_to("/")
     else
       post = Post.offset( rand(Post.count) ).first
