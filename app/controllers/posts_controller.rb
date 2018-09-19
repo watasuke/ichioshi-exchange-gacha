@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate, :current_user
+  before_action :current_user, {only: [:new, :create]}
+  before_action :authenticate, {only: [:new, :create]}
 
   def show
     @post = Post.find_by(slug: params[:slug])
