@@ -1,21 +1,21 @@
 <head>
-    <title>新規投稿 | イチオシ交換ガチャ</title>
+    <title>投稿内容編集 | イチオシ交換ガチャ</title>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="新規投稿 | イチオシ交換ガチャ" />
+    <meta property="og:title" content="投稿内容編集 | イチオシ交換ガチャ" />
     <meta property="og:description" content="自分のイチオシ情報を投稿すると誰かのイチオシ情報×3とランダムで交換できる愉快なサービスです。" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:site_name" content="イチオシ交換ガチャ" />
     <meta property="og:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description" content="自分のイチオシ情報を投稿すると誰かのイチオシ情報×3とランダムで交換できる愉快なサービスです。" />
-    <meta name="twitter:title" content="新規投稿 | イチオシ交換ガチャ" />
+    <meta name="twitter:title" content="投稿内容編集 | イチオシ交換ガチャ" />
     <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
     <meta name="twitter:creator" content="@watasuke221" />
 </head>
 <body class="bg-light" style="padding-bottom: 96px;">
     <div class="container-fluid bg-light">
         </br>
-        <%= form_tag("/posts/create") do %>
+        <%= form_tag("/posts/#{@post.slug}/update") do %>
             <div class="form-group">
                 <% @post.errors.full_messages.each do |message| %>
                     <div class="form-error alert alert-warning text-center" role="alert">
@@ -24,7 +24,7 @@
                 <% end %>
                 <div class="col-auto">
                     <label for="title">イチオシするもの</label>
-                    <input type="text" class="form-control border border-secondary" name="title" placeholder="なにをイチオシするか入力してください" value="<%= @post.title %>" >
+                    <input type="text" class="form-control border border-secondary" name="title" value="<%= @post.title %>">
                 </div>
             </div>
             <div class="form-group">
@@ -33,7 +33,7 @@
                     <textarea class="form-control border border-secondary" name="comment" placeholder="どんなところがイチオシなのか、想いをつづってください"><%= @post.comment %></textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg mx-auto d-block text-white">イチオシを投稿する</button>
+            <button type="submit" class="btn btn-primary btn-lg mx-auto d-block text-white">保存</button>
         <% end %>
     </div>
 </body>

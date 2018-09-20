@@ -20,6 +20,14 @@
       <p class="card-text"><%= @post.comment %></p>
       <img src="<%= @user.image_url %>" class="rounded-circle">
       <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+      
+      <% if "#{@current_user.id}" == "#{@post.user_id}" %>
+        <div class="text-right">
+          <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>
+          <%= link_to "削除", "/posts/#{@post.slug}/destroy", {method: "post"}%>
+        </div>
+      <% end %>
+      
     </div>
   </div>
   </br>

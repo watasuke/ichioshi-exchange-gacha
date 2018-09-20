@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'posts/new' => 'posts#new'
   post 'posts/create' => 'posts#create'
   get 'posts/:slug' => 'posts#show'
+  get "posts/:slug/edit" => "posts#edit"
+  post "posts/:slug/update" => "posts#update"
+  post "posts/:slug/destroy" => "posts#destroy"
   resources :posts, param: :slug
 
   get '/auth/:provider/callback', to: 'sessions#create'
