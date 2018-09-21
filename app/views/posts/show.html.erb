@@ -11,6 +11,30 @@
   <meta name="twitter:title" content="<%= @post.title %>" />
   <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
   <meta name="twitter:creator" content="@watasuke221" />
+
+  <style>
+    /* CSSアニメーションの設定 */
+    .purupuru {
+      -webkit-animation: purupuru 0.8s linear 0s 1;
+      animation: purupuru 0.8s linear 0s 1;
+    }
+    @-webkit-keyframes purupuru {
+      0%   { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
+      20%  { -webkit-transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
+      50%  { -webkit-transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
+      65%  { -webkit-transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
+      80%  { -webkit-transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
+      100% { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
+    }
+    @keyframes purupuru {
+      0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+      20%  { transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
+      50%  { transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
+      65%  { transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
+      80%  { transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
+      100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+    }
+  </style>
 </head>
 <body class="bg-light" style="padding-bottom: 96px;">
   </br>
@@ -36,6 +60,24 @@
   </div>
 
   <div class="text-center my-3">
-    <a href="/results/create"><img src="/get.png" width="250px"></a>
+    <a href="/results/create"><img src="/get.png" width="250px" id="gachaButton"></a>
   </div>
+  <script>
+    var body = document.getElementsByTagName('body')[0];
+    var btn = document.getElementById('gachaButton');
+
+    function gachaPurupuru() {
+      document.write('<img src="/gacha.png" id="gacha" class="purupuru" width="500px">')
+      looopAnimation("gacha", "purupuru", 800);
+    }
+    
+    function linkUrl() {
+        location.href = '/results/create'
+    }
+    
+    gachaButton.addEventListener('click', function() {
+      setTimeout(gachaPurupuru, 5000);
+      setTimeout(linkUrl, 1500);
+    });
+  </script>
 </body>
