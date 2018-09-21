@@ -60,19 +60,19 @@
   </div>
 
   <div class="text-center my-3">
-    <a href="/results/create"><img src="/get.png" width="250px" id="gachaButton"></a>
+    <a href="#"><img src="/get.png" width="250px" id="gachaButton"></a>
   </div>
   <script>
     var body = document.getElementsByTagName('body')[0];
     var btn = document.getElementById('gachaButton');
 
     function gachaPurupuru() {
-      document.write('<img src="/gacha.png" id="gacha" class="purupuru" width="500px">')
+      document.write('<img src="/gacha.png" id="gacha" class="purupuru" width="500px">');
       looopAnimation("gacha", "purupuru", 800);
     }
     
     function linkUrl() {
-        location.href = '/results/create'
+        location.href = '/results/create';
     }
     
     gachaButton.addEventListener('click', function() {
