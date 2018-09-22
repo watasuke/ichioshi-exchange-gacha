@@ -1,0 +1,15 @@
+current directory: /Users/watasuke-pixiv/ichioshi-exchange-gacha/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.1/ext/bootsnap
+/Users/watasuke-pixiv/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180922-22561-1colj70.rb extconf.rb
+creating Makefile
+
+current directory: /Users/watasuke-pixiv/ichioshi-exchange-gacha/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/watasuke-pixiv/ichioshi-exchange-gacha/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/watasuke-pixiv/ichioshi-exchange-gacha/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20180922-22561-13iwseu/bootsnap
