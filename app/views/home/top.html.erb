@@ -11,35 +11,85 @@
     <meta name="twitter:title" content="イチオシ交換ガチャ" />
     <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
     <meta name="twitter:creator" content="@watasuke221" />
+
+    <style>
+    .show-gacha-animation {
+      display: none;
+      text-align: center;
+    }
+
+    /* CSSアニメーションの設定 */
+    .purupuru {
+      animation: purupuru 0.8s linear 0s infinite;
+    }
+
+    @keyframes purupuru {
+      0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+      20%  { transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
+      50%  { transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
+      65%  { transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
+      80%  { transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
+      100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+    }
+    </style>
 </head>
 <body class="bg-light">
-    <% if !@current_user %>
-        <img src="/main-visual.png" class="mx-auto d-block" style="width: 100%; max-width: 400px;">
-        <div class="text-center my-3">
-            <a href="/auth/twitter"><img src="/login.png" width="250px"></a>
-        </div>
-    <% end %>
-    <% if @current_user %>
-        <div class="text-center font-weight-bold text-primary display-2"><%= @credits %></div>
-        <div class="text-center font-weight-bold text-primary">クレジット</div>
-        <div class="text-center my-3">
-            <a href="/results/create"><img src="/get.png" width="250px"></a>
-        </div>
-        <div class="text-center my-3">
-            <a href="/posts/new"><img src="/post.png" width="250px"></a>
-        </div>
-    <% end %>
-    </br>
-    <div class="text-center font-weight-bold display-4 my-4 text-body">あそびかた</div>
-    <img src="/step1.png" class="mx-auto d-block" width="50px">
-    <img src="/kamihikouki.png" class="mx-auto d-block my-2" width="120px">
-    <div class="text-center font-weight-bold text-body my-1">自分のイチオシ情報を投稿する</div>
-    </br>
-    <img src="/step2.png" class="mx-auto d-block" width="50px">
-    <img src="/3credits.png" class="mx-auto d-block my-2" width="200px">
-    <div class="text-center font-weight-bold text-body my-2">報酬として3クレジットを得る</br>(1クレジット=1ガチャ)</div>
-    </br>
-    <img src="/step3.png" class="mx-auto d-block" width="50px">
-    <img src="/goal.png" class="mx-auto d-block my-2" width="250px">
-    <div class="text-center font-weight-bold text-body my-2">クレジットを使って</br>イチオシガチャを回す</div>
+    <div class="content">
+        <% if !@current_user %>
+            <img src="/main-visual.png" class="mx-auto d-block" style="width: 100%; max-width: 400px;">
+            <div class="text-center my-3">
+                <a href="/auth/twitter"><img src="/login.png" width="250px"></a>
+            </div>
+        <% end %>
+        <% if @current_user %>
+            <div class="text-center font-weight-bold text-primary display-2"><%= @credits %></div>
+            <div class="text-center font-weight-bold text-primary">クレジット</div>
+            <div class="text-center my-3">
+                <a href="/results/create"><img src="/get.png" width="250px" id="gachaButton"></a>
+            </div>
+            
+            <div class="text-center my-3">
+                <a href="/posts/new"><img src="/post.png" width="250px"></a>
+            </div>
+        <% end %>
+
+        </br>
+        <div class="text-center font-weight-bold display-4 my-4 text-body">あそびかた</div>
+        <img src="/step1.png" class="mx-auto d-block" width="50px">
+        <img src="/kamihikouki.png" class="mx-auto d-block my-2" width="120px">
+        <div class="text-center font-weight-bold text-body my-1">自分のイチオシ情報を投稿する</div>
+        </br>
+        <img src="/step2.png" class="mx-auto d-block" width="50px">
+        <img src="/3credits.png" class="mx-auto d-block my-2" width="200px">
+        <div class="text-center font-weight-bold text-body my-2">報酬として3クレジットを得る</br>(1クレジット=1ガチャ)</div>
+        </br>
+        <img src="/step3.png" class="mx-auto d-block" width="50px">
+        <img src="/goal.png" class="mx-auto d-block my-2" width="250px">
+        <div class="text-center font-weight-bold text-body my-2">クレジットを使って</br>イチオシガチャを回す</div>
+    </div><!-- .content -->
+    <div class="show-gacha-animation">
+        <img src="/gacha.png" id="gacha" class="purupuru" width="300px">
+    </div><!-- .show-gacha-animation -->
+    <script>
+        var body = document.getElementsByTagName('body')[0];
+        var btn = document.getElementById('gachaButton');
+
+        // function gachaPurupuru() {
+        //   document.write('');
+        //   // looopAnimation("gacha", "purupuru", 800);
+        // }
+        
+        function linkUrl() {
+            location.href = '/results/create';
+        }
+        
+        gachaButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        $('.content').hide();
+        $('.show-gacha-animation').show();
+
+        setTimeout(linkUrl, 2000);
+        // setTimeout(gachaPurupuru, 500);
+        });
+    </script>
 </body>
