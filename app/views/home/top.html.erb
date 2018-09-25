@@ -12,9 +12,9 @@
     <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
     <meta name="twitter:creator" content="@watasuke221" />
 </head>
-<body class="bg-light" style="padding-bottom: 96px;">
+<body class="bg-light">
     <% if !@current_user %>
-        <img src="/main-visual.png" class="mx-auto d-block" width="400px">
+        <img src="/main-visual.png" class="mx-auto d-block" style="width: 100%; max-width: 400px;">
         <div class="text-center my-3">
             <a href="/auth/twitter"><img src="/login.png" width="250px"></a>
         </div>

@@ -13,19 +13,16 @@
   <meta name="twitter:creator" content="@watasuke221" />
 
   <style>
+    .show-gacha-animation {
+      display: none;
+      text-align: center;
+    }
+
     /* CSSアニメーションの設定 */
     .purupuru {
-      -webkit-animation: purupuru 0.8s linear 0s 1;
-      animation: purupuru 0.8s linear 0s 1;
+      animation: purupuru 0.8s linear 0s infinite;
     }
-    @-webkit-keyframes purupuru {
-      0%   { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
-      20%  { -webkit-transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
-      50%  { -webkit-transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
-      65%  { -webkit-transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
-      80%  { -webkit-transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
-      100% { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
-    }
+
     @keyframes purupuru {
       0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
       20%  { transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
@@ -36,48 +33,58 @@
     }
   </style>
 </head>
-<body class="bg-light" style="padding-bottom: 96px;">
-  </br>
-  <div class="card w-75 mx-auto d-block">
-    <div class="card-body">
-      <h1 class="card-title"><%= @post.title %></h1>
-      <p class="card-text"><%= @post.comment %></p>
-      <img src="<%= @user.image_url %>" class="rounded-circle">
-      <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
-      
-      <% if @current_user.id == @post.user_id.to_i %>
-        <div class="text-right">
-          <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>
-          <%= link_to "削除", "/posts/#{@post.slug}/destroy", {method: "post"}%>
-        </div>
-      <% end %>
-      
+<body class="bg-light">
+  <div class="show-card">
+    </br>
+    <div class="card w-75 mx-auto d-block">
+      <div class="card-body">
+        <h1 class="card-title"><%= @post.title %></h1>
+        <p class="card-text"><%= @post.comment %></p>
+        <img src="<%= @user.image_url %>" class="rounded-circle">
+        <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+        
+        <% if @current_user.id == @post.user_id.to_i %>
+          <div class="text-right">
+            <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>
+            <%= link_to "削除", "/posts/#{@post.slug}/destroy", {method: "post"}%>
+          </div>
+        <% end %>
+        
+      </div>
     </div>
-  </div>
-  </br>
-  <div class="text-center my-3">
-    <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！&hashtags=イチオシ交換ガチャ", rel: 'nofollow',target: "_blank" %>
-  </div>
+    </br>
+    <div class="text-center my-3">
+      <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！&hashtags=イチオシ交換ガチャ", rel: 'nofollow',target: "_blank" %>
+    </div>
 
-  <div class="text-center my-3">
-    <a href="#"><img src="/get.png" width="250px" id="gachaButton"></a>
-  </div>
+    <div class="text-center my-3">
+      <a href="#"><img src="/get.png" width="250px" id="gachaButton"></a>
+    </div>
+  </div><!-- .show-card -->
+  <div class="show-gacha-animation">
+    <img src="/gacha.png" id="gacha" class="purupuru" width="300px">
+  </div><!-- .show-gacha-animation -->
+
   <script>
     var body = document.getElementsByTagName('body')[0];
     var btn = document.getElementById('gachaButton');
 
-    function gachaPurupuru() {
-      document.write('<img src="/gacha.png" id="gacha" class="purupuru" width="500px">');
-      looopAnimation("gacha", "purupuru", 800);
-    }
+    // function gachaPurupuru() {
+    //   document.write('');
+    //   // looopAnimation("gacha", "purupuru", 800);
+    // }
     
     function linkUrl() {
         location.href = '/results/create';
     }
     
-    gachaButton.addEventListener('click', function() {
-      setTimeout(gachaPurupuru, 5000);
-      setTimeout(linkUrl, 1500);
+    gachaButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      $('.show-card').hide();
+      $('.show-gacha-animation').show();
+
+      setTimeout(linkUrl, 2000);
+      // setTimeout(gachaPurupuru, 500);
     });
   </script>
 </body>
