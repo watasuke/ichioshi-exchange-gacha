@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(slug: params[:slug])
     @user = User.find_by(id: @post.user_id)
+    @credits = Credit.find_by(user_id: current_user.id).credits
   end
 
   def new

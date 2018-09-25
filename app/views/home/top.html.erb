@@ -44,9 +44,12 @@
         <% if @current_user %>
             <div class="text-center font-weight-bold text-primary display-2"><%= @credits %></div>
             <div class="text-center font-weight-bold text-primary">クレジット</div>
-            <div class="text-center my-3">
-                <a href="/results/create"><img src="/get.png" width="250px" id="gachaButton"></a>
-            </div>
+            
+            <% if @credits != 0 %>
+                <div class="text-center my-3">
+                    <a href="/results/create"><img src="/get.png" width="250px" id="gachaButton"></a>
+                </div>
+            <% end %>
             
             <div class="text-center my-3">
                 <a href="/posts/new"><img src="/post.png" width="250px"></a>
