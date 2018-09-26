@@ -24,7 +24,7 @@
   <body>
     <div id="wrapper">
       <%= render :partial => 'shared/header' %>
-      <div id="contents" style="padding-bottom:40px">
+      <div id="contents" style="padding-bottom:40px; min-height: calc(100vh - 112px);">
         <% if flash[:notice] %>
           <div class="notice alert alert-warning text-center" role="alert">
             <%= flash[:notice]%>
