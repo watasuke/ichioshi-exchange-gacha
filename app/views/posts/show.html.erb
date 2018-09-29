@@ -43,6 +43,10 @@
         <img src="<%= @user.image_url %>" class="rounded-circle">
         <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
         
+        <div id="wows_buttons_<%= @post.id %>">
+          <%= render partial: 'wows/wow', locals: { post: @post, wows: @wows} %>
+        </div>
+
         <% if @current_user.id == @post.user_id.to_i %>
           <div class="text-right">
             <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>

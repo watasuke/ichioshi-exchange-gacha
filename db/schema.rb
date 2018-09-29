@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_090447) do
+ActiveRecord::Schema.define(version: 2018_09_29_074450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2018_08_28_090447) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "hexes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_hexes_on_post_id"
+    t.index ["user_id"], name: "index_hexes_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "comment"
@@ -29,7 +38,20 @@ ActiveRecord::Schema.define(version: 2018_08_28_090447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug", null: false
+    t.integer "hexe_count"
+    t.integer "wakaru_count"
+    t.integer "hexes_count"
+    t.integer "wows_count"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_reactions_on_post_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -48,4 +70,19 @@ ActiveRecord::Schema.define(version: 2018_08_28_090447) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wows", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_wows_on_post_id"
+    t.index ["user_id"], name: "index_wows_on_user_id"
+  end
+
+  add_foreign_key "hexes", "posts"
+  add_foreign_key "hexes", "users"
+  add_foreign_key "reactions", "posts"
+  add_foreign_key "reactions", "users"
+  add_foreign_key "wows", "posts"
+  add_foreign_key "wows", "users"
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'wows/create'
+  get 'wows/destroy'
   get 'users/collection' => 'users#collection'
   get 'users/posts' => 'users#posts'
 
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   post "posts/:slug/update" => "posts#update"
   post "posts/:slug/destroy" => "posts#destroy"
   resources :posts, param: :slug
+  resources :posts do
+    resources :wows, only: [:create, :destroy]
+  end
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

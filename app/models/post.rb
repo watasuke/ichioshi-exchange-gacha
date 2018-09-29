@@ -4,6 +4,11 @@ class Post < ApplicationRecord
     validates  :user_id, {presence: true}
     before_create :set_create_slug
     belongs_to :user
+    has_many :wows, dependent: :destroy
+
+    def wow_user(user_id)
+    wows.find_by(user_id: user_id)
+    end
 
     def to_param
         slug
