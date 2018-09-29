@@ -5,6 +5,11 @@ class Post < ApplicationRecord
     before_create :set_create_slug
     belongs_to :user
     has_many :wows, dependent: :destroy
+    has_many :agreements, dependent: :destroy
+
+    def agreement_user(user_id)
+    agreements.find_by(user_id: user_id)
+    end
 
     def wow_user(user_id)
     wows.find_by(user_id: user_id)

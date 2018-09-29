@@ -42,9 +42,14 @@
         <p class="card-text"><%= @post.comment %></p>
         <img src="<%= @user.image_url %>" class="rounded-circle">
         <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
-        
+        </br>
+        </br>
         <div id="wows_buttons_<%= @post.id %>">
           <%= render partial: 'wows/wow', locals: { post: @post, wows: @wows} %>
+        </div>
+
+        <div id="agreements_buttons_<%= @post.id %>">
+          <%= render partial: 'agreements/agreement', locals: { post: @post, agreements: @agreements} %>
         </div>
 
         <% if @current_user.id == @post.user_id.to_i %>

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :wows, only: [:create, :destroy]
   end
+  resources :posts do
+    resources :agreements, only: [:create, :destroy]
+  end
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
