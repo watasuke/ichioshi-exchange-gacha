@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], comment: params[:comment], user_id: current_user.id)
+    @post = Post.new(title: params[:title], comment: params[:comment], user_id: current_user.id, wows_count: 0)
     if @post.save
       user = Credit.find_by(user_id: current_user.id)
       user.credits += 3
