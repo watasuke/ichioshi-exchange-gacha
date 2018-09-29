@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_074450) do
+ActiveRecord::Schema.define(version: 2018_09_29_151300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agreements", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_agreements_on_post_id"
+    t.index ["user_id"], name: "index_agreements_on_user_id"
+  end
 
   create_table "credits", force: :cascade do |t|
     t.integer "user_id"
@@ -41,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_09_29_074450) do
     t.integer "hexe_count"
     t.integer "wakaru_count"
     t.integer "hexes_count"
-    t.integer "wows_count"
+    t.integer "wows_count", null: false
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
@@ -79,6 +88,8 @@ ActiveRecord::Schema.define(version: 2018_09_29_074450) do
     t.index ["user_id"], name: "index_wows_on_user_id"
   end
 
+  add_foreign_key "agreements", "posts"
+  add_foreign_key "agreements", "users"
   add_foreign_key "hexes", "posts"
   add_foreign_key "hexes", "users"
   add_foreign_key "reactions", "posts"
