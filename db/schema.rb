@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_151300) do
+ActiveRecord::Schema.define(version: 2018_09_29_153927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,6 @@ ActiveRecord::Schema.define(version: 2018_09_29_151300) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "hexes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_hexes_on_post_id"
-    t.index ["user_id"], name: "index_hexes_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "comment"
@@ -47,20 +38,9 @@ ActiveRecord::Schema.define(version: 2018_09_29_151300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug", null: false
-    t.integer "hexe_count"
-    t.integer "wakaru_count"
-    t.integer "hexes_count"
     t.integer "wows_count", null: false
+    t.integer "agreements_count", null: false
     t.index ["slug"], name: "index_posts_on_slug", unique: true
-  end
-
-  create_table "reactions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_reactions_on_post_id"
-    t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -90,10 +70,6 @@ ActiveRecord::Schema.define(version: 2018_09_29_151300) do
 
   add_foreign_key "agreements", "posts"
   add_foreign_key "agreements", "users"
-  add_foreign_key "hexes", "posts"
-  add_foreign_key "hexes", "users"
-  add_foreign_key "reactions", "posts"
-  add_foreign_key "reactions", "users"
   add_foreign_key "wows", "posts"
   add_foreign_key "wows", "users"
 end
