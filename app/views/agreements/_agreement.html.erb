@@ -2,20 +2,22 @@
 
     <% unless @post.agreement_user(@current_user.id).blank? %>
         <%= link_to post_agreement_path(post_id: @post.id ,id: @post.agreements[0].id), method: :delete, remote: true do %>
-            <%= "#{@post.agreements_count} わかる！" %>
+            <span class="text-danger">
+                <%= "#{@post.agreements_count} わかる！" %>
+            </span>
         <% end %>
     <% else %>
         <%= link_to post_agreements_path(@post.id), method: :post, remote: true do %>
-            <%= "#{@post.agreements_count} わかる！" %>
+            <span class="text-secondary">
+                <%= "#{@post.agreements_count} わかる！" %>
+            </span>
         <% end %>
     <% end %>
 
 <% else %>
 
-    <% if @post.agreements_count > 0 %>
+    <span class="text-secondary">
         <%= "#{@post.agreements_count} わかる！" %>
-    <% else %>
-        <%= "#{@post.agreements_count} わかる！" %>
-    <% end %>
+    </span>
 
 <% end %>

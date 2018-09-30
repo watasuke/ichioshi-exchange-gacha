@@ -2,20 +2,22 @@
 
     <% unless @post.wow_user(@current_user.id).blank? %>
         <%= link_to post_wow_path(post_id: @post.id ,id: @post.wows[0].id), method: :delete, remote: true do %>
-            <%= "#{@post.wows_count} へぇ〜" %>
+            <span class="text-danger">
+                <%= "#{@post.wows_count} へぇ〜" %>
+            </span>
         <% end %>
     <% else %>
         <%= link_to post_wows_path(@post.id), method: :post, remote: true do %>
-            <%= "#{@post.wows_count} へぇ〜" %>
+            <span class="text-secondary">
+                <%= "#{@post.wows_count} へぇ〜" %>
+            </span>
         <% end %>
     <% end %>
 
 <% else %>
 
-    <% if @post.wows_count > 0 %>
-        <%= "#{@post.wows_count} へぇ〜" %>
-    <% else %>
-        <%= "#{@post.wows_count} へぇ〜" %>
-    <% end %>
+    <span class="text-secondary">
+            <%= "#{@post.wows_count} へぇ〜" %>
+    </span>
 
 <% end %>
