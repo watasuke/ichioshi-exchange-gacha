@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def login_bonus
-    Credit.create(user_id: self.id, credits: 1)
+    Credit.create(user_id: self.id, credits: 3)
   end
 
   def posts

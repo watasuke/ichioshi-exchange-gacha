@@ -58,7 +58,7 @@
             <%= link_to "削除", "/posts/#{@post.slug}/destroy", {method: "post"}%>
           </div>
         <% end %>
-        
+
       </div>
     </div>
     </br>
@@ -71,7 +71,7 @@
         <a href="#"><img src="/get.png" width="250px" id="gachaButton"></a>
       </div>
     <% end %>
-    
+
   </div><!-- .show-card -->
   <div class="show-gacha-animation">
     <img src="/gacha.png" id="gacha" class="purupuru" width="300px">
@@ -85,11 +85,11 @@
     //   document.write('');
     //   // looopAnimation("gacha", "purupuru", 800);
     // }
-    
+
     function linkUrl() {
         location.href = '/results/create';
     }
-    
+
     gachaButton.addEventListener('click', function(event) {
       event.preventDefault();
       $('.show-card').hide();
