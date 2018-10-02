@@ -1,3 +1,46 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-reaction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  border: 1px solid #ddd;
+  padding: 0px 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+  transition: all 0.05s ease-in-out;
+
+  &:hover {
+    border-color: transparent;
+    text-decoration: none;
+    color: #FFF;
+    background-color: $orange;
+  }
+
+  &.reacted {
+    border-color: transparent;
+    color: #FFF;
+    background-color: $orange;
+  }
+}
+
+.show-gacha-animation {
+  animation: anime1 0.8s cubic-bezier(0.13, 1.65, 0.69, 0.76);
+}
+
+@keyframes anime1 {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

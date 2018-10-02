@@ -20,6 +20,7 @@
       <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
       <img src="<%= @user.image_url %>" class="rounded-circle">
       <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+      <%= post.wows_count %> / <%= post.agreements_count %>
     </div>
   </div>
   <% end %>

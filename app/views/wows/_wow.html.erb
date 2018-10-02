@@ -1,23 +1,18 @@
 <% if logged_in? %>
 
     <% unless @post.wow_user(@current_user.id).blank? %>
-        <%= link_to post_wow_path(post_id: @post.id ,id: @post.wows[0].id), method: :delete, remote: true do %>
-            <span class="text-danger">
-                <%= "#{@post.wows_count} へぇ〜" %>
-            </span>
+        <%= link_to post_wow_path(post_id: @post.id ,id: @post.wows[0].id), method: :delete, remote: true, class: 'btn-reaction reacted' do %>
+            <%= "#{@post.wows_count} へぇ〜" %>
         <% end %>
     <% else %>
-        <%= link_to post_wows_path(@post.id), method: :post, remote: true do %>
-            <span class="text-secondary">
-                <%= "#{@post.wows_count} へぇ〜" %>
-            </span>
+        <%= link_to post_wows_path(@post.id), method: :post, remote: true, class: 'btn-reaction' do %>
+            <%= "#{@post.wows_count} へぇ〜" %>
         <% end %>
     <% end %>
 
 <% else %>
 
     <span class="text-secondary">
-            <%= "#{@post.wows_count} へぇ〜" %>
+      <%= "#{@post.wows_count} へぇ〜" %>
     </span>
-
 <% end %>
