@@ -52,7 +52,7 @@
           <%= render partial: 'agreements/agreement', locals: { post: @post, agreements: @agreements} %>
         </span>
 
-        <% if @current_user.id == @post.user_id.to_i %>
+        <% if @current_user && @current_user.id == @post.user_id.to_i %>
           <div class="text-right">
             <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>
             <%= link_to "削除", "/posts/#{@post.slug}/destroy", {method: "post"}%>

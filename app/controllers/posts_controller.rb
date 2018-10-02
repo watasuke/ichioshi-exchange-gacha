@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
-  before_action :current_user, :authenticate
+  before_action :current_user
+  before_action :authenticate, {except: [:show]}
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
   def show
     @post = Post.find_by(slug: params[:slug])
     @user = User.find_by(id: @post.user_id)
-    @credits = Credit.find_by(user_id: current_user.id).credits
+    # 三項演算子
+    @credits = @current_user ? Credit.find_by(user_id: @current_user.id).credits : 0
   end
 
   def new
