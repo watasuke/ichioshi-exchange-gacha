@@ -18,8 +18,16 @@
         <div class="card w-75 mx-auto d-block my-2">
             <div class="card-body">
                 <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
-                <img src="<%= post.user.image_url %>" alt="">
-                <%= post.user.user_name %>
+                <img src="<%= post.user.image_url %>" class="rounded-circle">
+                <%= link_to "#{post.user.user_name}", "https://twitter.com/#{post.user.user_name}" %>
+                </br>
+                </br>
+                <span class="mr-2 text-secondary">
+                    <%= post.wows_count %> へぇ〜
+                </span>
+                <span class="mr-2 text-secondary">
+                    <%= post.agreements_count %> わかる！
+                </span>
             </div>
         </div>
     <% end %>

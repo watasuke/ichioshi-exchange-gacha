@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'agreements/create'
-  get 'agreements/destroy'
-  get 'wows/create'
-  get 'wows/destroy'
   get 'users/collection' => 'users#collection'
   get 'users/posts' => 'users#posts'
 

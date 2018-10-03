@@ -1,13 +1,13 @@
 <% if logged_in? %>
 
     <% unless @post.agreement_user(@current_user.id).blank? %>
-        <%= link_to post_agreement_path(post_id: @post.id ,id: @post.agreements[0].id), method: :delete, remote: true do %>
+        <%= link_to post_agreement_path(post_id: @post.id ,id: @post.agreements[0].id), method: :delete, remote: true, class: 'btn-reaction reacted' do %>
             <span class="text-danger">
                 <%= "#{@post.agreements_count} わかる！" %>
             </span>
         <% end %>
     <% else %>
-        <%= link_to post_agreements_path(@post.id), method: :post, remote: true do %>
+        <%= link_to post_agreements_path(@post.id), method: :post, remote: true, class: 'btn-reaction' do %>
             <span class="text-secondary">
                 <%= "#{@post.agreements_count} わかる！" %>
             </span>
