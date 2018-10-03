@@ -41,7 +41,7 @@
         <h1 class="card-title"><%= @post.title %></h1>
         <p class="card-text"><%= @post.comment %></p>
         <img src="<%= @user.image_url %>" class="rounded-circle">
-        <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+        <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}", target: "_blank" %>
         </br>
         </br>
         <span id="wows_buttons_<%= @post.id %>" class="mr-2">
@@ -63,7 +63,7 @@
     </div>
     </br>
     <div class="text-center my-3">
-      <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！&hashtags=イチオシ交換ガチャ", rel: 'nofollow',target: "_blank" %>
+      <%= link_to image_tag('/tweet.png', width: '250px'), "https://twitter.com/intent/tweet?url=#{request.url}&lang=ja&related=watasuke221:イチオシ交換ガチャの作者&text=#{@post.title} - @#{@user.user_name}さんのイチオシをゲットしました！&hashtags=イチオシ交換ガチャ", rel: 'nofollow', target: "_blank" %>
     </div>
 
     <% if @credits != 0 %>

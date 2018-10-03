@@ -19,7 +19,7 @@
     <div class="card-body">
       <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
       <img src="<%= @user.image_url %>" class="rounded-circle">
-      <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}" %>
+      <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}", target: "_blank" %>
       </br>
       </br>
       <span class="mr-2 text-secondary">
