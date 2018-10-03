@@ -44,14 +44,22 @@
         <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}", target: "_blank" %>
         </br>
         </br>
-        <span id="wows_buttons_<%= @post.id %>" class="mr-2">
-          <%= render partial: 'wows/wow', locals: { post: @post, wows: @wows} %>
-        </span>
-
-        <span id="agreements_buttons_<%= @post.id %>">
-          <%= render partial: 'agreements/agreement', locals: { post: @post, agreements: @agreements} %>
-        </span>
-
+        <div class="mb-2">
+          <span id="wows_buttons_<%= @post.id %>">
+            <%= render partial: 'wows/wow', locals: { post: @post, wows: @wows} %>
+          </span>
+          <% @wow_users.each do |wow_user| %>
+            <img src="<%= wow_user.image_url %>" class="rounded-circle" height="40px">
+          <% end %>
+        </div>
+        <div class="mt-2">
+          <span id="agreements_buttons_<%= @post.id %>">
+            <%= render partial: 'agreements/agreement', locals: { post: @post, agreements: @agreements} %>
+          </span>
+          <% @agreement_users.each do |agreement_user| %>
+            <img src="<%= agreement_user.image_url %>" class="rounded-circle" height="40px">
+          <% end %>
+        </div>
         <% if @current_user && @current_user.id == @post.user_id.to_i %>
           <div class="text-right">
             <%= link_to "編集", "/posts/#{@post.slug}/edit", class: "text-right" %>

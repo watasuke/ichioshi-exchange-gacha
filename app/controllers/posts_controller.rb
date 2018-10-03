@@ -8,6 +8,12 @@ class PostsController < ApplicationController
     @user = User.find_by(id: @post.user_id)
     # 三項演算子
     @credits = @current_user ? Credit.find_by(user_id: @current_user.id).credits : 0
+
+    wows = Wow.where(post_id: @post.id)
+    @wow_users = User.where(id: wows.pluck(:user_id))
+
+    agreements = Agreement.where(post_id: @post.id)
+    @agreement_users = User.where(id: agreements.pluck(:user_id))
   end
 
   def new
