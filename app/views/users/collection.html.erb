@@ -18,7 +18,7 @@
         <div class="card w-75 mx-auto d-block my-2">
             <div class="card-body">
                 <h2 class="card-title"><%= link_to(post.title, "/posts/#{post.slug}") %></h2>
-                <img src="<%= post.user.image_url %>" class="rounded-circle">
+                <%= link_to image_tag("#{post.user.image_url}", class: "rounded-circle"), "https://twitter.com/#{post.user.user_name}", target: "_blank" %>
                 <%= link_to "#{post.user.user_name}", "https://twitter.com/#{post.user.user_name}", target: "_blank" %>
                 </br>
                 </br>

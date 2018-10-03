@@ -40,7 +40,7 @@
       <div class="card-body">
         <h1 class="card-title"><%= @post.title %></h1>
         <p class="card-text"><%= @post.comment %></p>
-        <img src="<%= @user.image_url %>" class="rounded-circle">
+        <%= link_to image_tag("#{@user.image_url}", class: "rounded-circle"), "https://twitter.com/#{@user.user_name}", target: "_blank" %>
         <%= link_to "#{@user.user_name}", "https://twitter.com/#{@user.user_name}", target: "_blank" %>
         </br>
         </br>
@@ -49,7 +49,7 @@
             <%= render partial: 'wows/wow', locals: { post: @post, wows: @wows} %>
           </span>
           <% @wow_users.each do |wow_user| %>
-            <img src="<%= wow_user.image_url %>" class="rounded-circle" height="40px">
+            <%= link_to image_tag("#{wow_user.image_url}", class: "rounded-circle", height: "32px"), "https://twitter.com/#{wow_user.user_name}", target: "_blank" %>
           <% end %>
         </div>
         <div class="mt-2">
@@ -57,7 +57,7 @@
             <%= render partial: 'agreements/agreement', locals: { post: @post, agreements: @agreements} %>
           </span>
           <% @agreement_users.each do |agreement_user| %>
-            <img src="<%= agreement_user.image_url %>" class="rounded-circle" height="40px">
+            <%= link_to image_tag("#{agreement_user.image_url}", class: "rounded-circle", height: "32px"), "https://twitter.com/#{agreement_user.user_name}", target: "_blank" %>
           <% end %>
         </div>
         <% if @current_user && @current_user.id == @post.user_id.to_i %>
