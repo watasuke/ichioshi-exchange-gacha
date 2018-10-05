@@ -39,6 +39,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(slug: params[:slug])
+    @post.title = params[:title]
     @post.comment = params[:comment]
     if @post.save
       flash[:notice] = "投稿を編集しました"
