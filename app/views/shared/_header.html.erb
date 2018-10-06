@@ -1,8 +1,9 @@
 <div id="header">
     <header>
         <nav class="navbar navbar-dark bg-primary">
-            <a class="navbar-brand mx-auto" href="/">イチオシ交換ガチャ</a>
-
+            <div class="mx-auto navbar-brand">
+                <%= link_to image_tag("/logo.svg", width: "100px"), "/" %>
+            </div>
             <% if @current_user %>
                 <div class="btn-group dropleft" style='position:absolute; top:4px; right: 4px'>
                     <div>

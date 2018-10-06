@@ -5,11 +5,11 @@
     <meta property="og:description" content="自分のイチオシ情報を投稿すると誰かのイチオシ情報×3とランダムで交換できる愉快なサービスです。" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:site_name" content="イチオシ交換ガチャ" />
-    <meta property="og:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
+    <meta property="og:image" content="https://ichioshi-exchange-gacha.herokuapp.com/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:description" content="自分のイチオシ情報を投稿すると誰かのイチオシ情報×3とランダムで交換できる愉快なサービスです。" />
     <meta name="twitter:title" content="イチオシ交換ガチャ" />
-    <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/main-visual.png" />
+    <meta name="twitter:image" content="https://ichioshi-exchange-gacha.herokuapp.com/og.png" />
     <meta name="twitter:creator" content="@watasuke221" />
 
     <style>
@@ -36,7 +36,7 @@
 <body class="bg-light">
     <div class="content">
         <% if !@current_user %>
-            <img src="/main-visual.png" class="mx-auto d-block" style="width: 100%; max-width: 400px;">
+            <img src="/about.png" class="mx-auto d-block" style="width: 100%; max-width: 600px;">
             <div class="text-center my-3">
                 <a href="/auth/twitter"><img src="/login.png" width="250px"></a>
             </div>
