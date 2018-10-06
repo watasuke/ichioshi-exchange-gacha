@@ -1,24 +1,13 @@
-# README
+# このソースコードを元に動いているサイト
+https://ichioshi-exchange-gacha.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## あそびかた
+① ユーザーは自分のイチオシ情報を投稿する
+② 1投稿につき3クレジットユーザーに付与される(1クレジット=1ガチャ)
+③ クレジットをつかってイチオシガチャを回すことができる
 
-Things you may want to cover:
+# ソースコードを公開する目的
+この世の中でたったひとりでもいいので、自分と同じ初学者の人の助けになればと思い公開することにしました。
+また、ジャンルやメンバーをしぼって遊んでいただくのもいいかもしれません。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ソースコードはお行儀の悪いところも多く、全く褒められたものではないと思いますが……ご勘弁ください！
